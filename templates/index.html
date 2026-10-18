@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ site.title }}">
+  <meta property="og:description" content="{{ site.description }}">
+{% if personal.contacts.get('website') %}
+  <link rel="canonical" href="{{ personal.contacts.website.value }}">
+  <meta property="og:url" content="{{ personal.contacts.website.value }}">
+{% endif %}
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">{{ site.skip_link }}</a>
+  <main id="conteudo" class="container">
+    <section class="intro" aria-labelledby="nome">
+{% if personal.get('location') %}
+      <p class="eyebrow">{{ personal.location }}</p>
+{% endif %}
+      <h1 id="nome">{{ personal.name }}</h1>
+      <p class="professional-title">{{ personal.title }}</p>
+      <p class="summary">{{ presentation.summary }}</p>
+{% if personal.contacts.get('linkedin') or personal.contacts.get('email') %}
+      <div class="links intro-links">
+{% if personal.contacts.get('linkedin') %}
+        <a class="button" href="{{ personal.contacts.linkedin.value }}">{{ personal.contacts.linkedin.label }} <span aria-hidden="true">↗</span></a>
+{% endif %}
+{% if personal.contacts.get('email') %}
+        <a href="mailto:{{ personal.contacts.email.value }}">{{ personal.contacts.email.label }} <span aria-hidden="true">↗</span></a>
+{% endif %}
+      </div>
+{% endif %}
+    </section>
+
+{% if specialties['items'] %}
+    <section class="specialties" aria-labelledby="especialidades">
+      <h2 id="especialidades">{{ specialties.title }}</h2>
+      <ul class="tags">
+{% for item in specialties['items'] %}
+        <li>{{ item }}</li>
+{% endfor %}
+      </ul>
+    </section>
+{% endif %}
+
+{% if skills.groups %}
+    <section class="section" aria-labelledby="competencias">
+      <h2 id="competencias">{{ skills.title }}</h2>
+      <div class="skills-grid">
+{% for group in skills.groups %}
+        <div class="skill-group">
+          <h3>{{ group.category }}</h3>
+          <ul>
+{% for item in group['items'] %}
+            <li>{{ item }}</li>
+{% endfor %}
+          </ul>
+        </div>
+{% endfor %}
+      </div>
+    </section>
+{% endif %}
+
+{% if impact['items'] %}
+    <section class="impact section" aria-labelledby="impacto">
+      <h2 id="impacto">{{ impact.title }}</h2>
+      <dl class="impact-grid">
+{% for item in impact['items'] %}
+        <div>
+          <dt>{{ item.value }}</dt>
+          <dd>{{ item.description }}</dd>
+        </div>
+{% endfor %}
+      </dl>
+    </section>
+{% endif %}
+
+{% if community['items'] %}
+    <section class="section community" aria-labelledby="comunidade">
+      <h2 id="comunidade">{{ community.title }}</h2>
+      <ul>
+{% for item in community['items'] %}
+        <li>{{ item }}</li>
+{% endfor %}
+      </ul>
+    </section>
+{% endif %}
+
+{% if personal.contacts %}
+    <section class="section contact" aria-labelledby="contato">
+      <h2 id="contato">{{ contact.title }}</h2>
+{% if contact.get('description') %}
+      <p>{{ contact.description }}</p>
+{% endif %}
+      <ul class="links">
+{% for kind, link in personal.contacts.items() %}
+        <li><a href="{{ 'mailto:' if kind == 'email' else '' }}{{ link.value }}">{{ link.value if kind == 'email' else link.label }} <span aria-hidden="true">↗</span></a></li>
+{% endfor %}
+      </ul>
+    </section>
+{% endif %}
+    <footer>
+      <p>© {{ year }} {{ personal.name }}</p>
+{% if personal.contacts.get('website') %}
+      <a href="{{ personal.contacts.website.value }}">{{ personal.contacts.website.label }}</a>
+{% endif %}
+    </footer>
+  </main>
+</body>
+</html>
