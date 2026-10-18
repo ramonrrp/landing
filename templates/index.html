@@ -30,7 +30,7 @@
         <a class="button" href="{{ personal.contacts.linkedin.value }}">{{ personal.contacts.linkedin.label }} <span aria-hidden="true">↗</span></a>
 {% endif %}
 {% if personal.contacts.get('email') %}
-        <a href="mailto:{{ personal.contacts.email.value }}">{{ personal.contacts.email.label }} <span aria-hidden="true">↗</span></a>
+        <a href="mailto:{{ personal.contacts.email.value | email_uri }}">{{ personal.contacts.email.label }} <span aria-hidden="true">↗</span></a>
 {% endif %}
       </div>
 {% endif %}
@@ -98,7 +98,7 @@
 {% endif %}
       <ul class="links">
 {% for kind, link in personal.contacts.items() %}
-        <li><a href="{{ 'mailto:' if kind == 'email' else '' }}{{ link.value }}">{{ link.value if kind == 'email' else link.label }} <span aria-hidden="true">↗</span></a></li>
+        <li><a href="{{ 'mailto:' ~ (link.value | email_uri) if kind == 'email' else link.value }}">{{ link.value if kind == 'email' else link.label }} <span aria-hidden="true">↗</span></a></li>
 {% endfor %}
       </ul>
     </section>

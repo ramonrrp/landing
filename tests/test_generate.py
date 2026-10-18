@@ -1,11 +1,13 @@
 from copy import deepcopy
 from datetime import datetime
+from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
 import unittest
+from urllib.parse import unquote, urlsplit
 from unittest.mock import patch
 from contextlib import redirect_stderr
 from io import StringIO
@@ -154,6 +156,24 @@ class GeneratorTests(unittest.TestCase):
                 self.profile["personal"]["contacts"]["email"]["value"] = value
                 with self.assertRaisesRegex(ProfileError, "e-mail inválido"):
                     validate_profile(self.profile)
+
+    def test_email_uri_reserved_characters_are_encoded(self):
+        for character in ("#", "?", "%", "/", "&", "+"):
+            with self.subTest(character=character):
+                address = f"first{character}last@example.com"
+                self.profile["personal"]["contacts"]["email"]["value"] = address
+                page = PageParser(self.render())
+                links = [
+                    attrs["href"] for tag, attrs in page.elements
+                    if tag == "a" and attrs.get("href", "").startswith("mailto:")
+                ]
+                self.assertEqual(len(links), 2)
+                for link in links:
+                    parsed = urlsplit(link)
+                    self.assertEqual(unquote(parsed.path), address)
+                    self.assertEqual(parsed.query, "")
+                    self.assertEqual(parsed.fragment, "")
+                self.assertIn(address, unescape(self.output.read_text(encoding="utf-8")))
 
     def test_invalid_input_preserves_existing_output(self):
         original = self.render()

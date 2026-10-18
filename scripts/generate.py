@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 import re
 import sys
-from urllib.parse import urlsplit
+from urllib.parse import quote, urlsplit
 
 import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, TemplateError
@@ -143,6 +143,7 @@ def generate(
         lstrip_blocks=True,
         keep_trailing_newline=True,
     )
+    environment.filters["email_uri"] = lambda value: quote(value, safe="@")
     # Missing optional contacts are normalized only in memory, never in the YAML.
     context = {**data, "personal": {**data["personal"]}}
     context["personal"]["contacts"] = data["personal"].get("contacts", {})
