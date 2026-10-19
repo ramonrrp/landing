@@ -20,10 +20,13 @@ personal:
 
 presentation:
   summary: >-
-    Atuo há aproximadamente 15 anos em tecnologia, com mais de 5 anos em
-    Platform Engineering e SRE. Meu trabalho reúne plataformas internas,
-    automação e confiabilidade para simplificar a experiência de desenvolvimento
-    e a operação de infraestrutura.
+    Oi, sou o Ramon!
+    Platform engineer / SRE com 5 anos de experiência (15 anos no total) lidando com workloads kubernetes produtivos, multi-cloud, focados em AWS/AZURE e habilitando times internos a consumir infraestrutura cloud native de forma governada através da definição de Golden Paths, observabilidade por design e entrega centralizada em IDPs (Backstage) que ofertam estes produtos de infraestrutura como código (IAC) ao público de desenvolvedores internos. Para isso, trabalho em soluções que usam stacks modernas e que normalmente incluem Terraform (OpenTofu), GitHub Actions reutilizáveis, Helm charts, templates Backstage e workflows Temporal.io com Golang, além do desenvolvimento e manutenção de scripts e APIs usadas para integração entre serviços.
+    Discuto, aprimoro e implemento golden paths para o provisionamento de recursos de cloud e para evolução de temas acerca do ciclo de desenvolvimento de apps e DevEx - tais como code flow, build, teste, deploy - propondo caminhos que garantam observabilidade e acordos de serviço (SLIs, SLOs) desde o nascimento. 
+    Por 10 anos atuei como DevOps Engineer e Sysadmin na Força Aérea Brasileira (FAB) como Sargento Especialista em Sistemas de Informação, lidando com operações em infraestrutura, NOC, SOC e sistemas críticos. Também sou formado em Engenharia de Computação desde 2020. 
+    Contribuo e participo de diversas comunidades tech em papéis distintos, como organizador do DevOpsDays RJ desde 2021, staff no KCD RJ, participante dos meetups HashiCorp e Docker RJ. Durante a faculdade, fui voluntário na organização de um ArduinoDay e de uma edição da Olimpíada Brasileira de Robótica.
+    Antes de tudo isso, eu sou pai, ciclista urbano e jardineiro. Bora falar mais!
+    
 
 specialties:
   title: Especialidades
@@ -39,17 +42,23 @@ skills:
       items:
         - Backstage
         - Internal Developer Platforms (IDP)
+        - Temporal.io
+        - Golang backend develop
+        - Api management
         - Developer Experience (DevEx)
+
     - category: Cloud e infraestrutura
       items:
         - AWS
         - Terraform
         - Infrastructure as Code
+        - Atlantis
     - category: Containers e GitOps
       items:
         - Kubernetes
         - EKS
-        - Argo CD
+        - ArgoCD
+        - Docker
     - category: Automação e desenvolvimento
       items:
         - GitHub Actions
@@ -74,9 +83,13 @@ impact:
 community:
   title: Comunidade
   items:
-    - Organização de cinco edições do DevOpsDays.
-    - Participação como staff do Kubernetes Community Days (KCD).
+    - Organizador em cinco edições do DevOpsDays Rio de Janeiro (2022-2026).
+    - Staff do Kubernetes Community Days (KCD) (2025).
+    - Voluntário em edição de Olimpíada Brasileira de Robótica (2019).
+    - Voluntário em edição do ArduinoDay (2018).
+    - Participante em Docker User Group.
+    - Participante em Hashicorp User Group.
 
 contact:
-  title: Vamos conversar?
+  title: Bora falar mais?
   description: Entre em contato por e-mail ou conecte-se comigo no LinkedIn.
