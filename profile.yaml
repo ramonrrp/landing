@@ -1,0 +1,82 @@
+site:
+  title: Ramon Perez — Platform Engineer | SRE | DevOps Engineer
+  description: Ramon Perez, profissional de Platform Engineering, SRE e DevOps no Rio de Janeiro. Plataformas internas, automação e confiabilidade.
+  skip_link: Ir para o conteúdo
+
+personal:
+  name: Ramon Perez
+  title: Platform Engineer | SRE | DevOps Engineer
+  location: Rio de Janeiro, Brasil
+  contacts:
+    linkedin:
+      label: LinkedIn
+      value: https://www.linkedin.com/in/ramonrrp
+    email:
+      label: Contato por e-mail
+      value: contato@ramonperez.dev
+    website:
+      label: ramonperez.dev
+      value: https://ramonperez.dev
+
+presentation:
+  summary: >-
+    Atuo há aproximadamente 15 anos em tecnologia, com mais de 5 anos em
+    Platform Engineering e SRE. Meu trabalho reúne plataformas internas,
+    automação e confiabilidade para simplificar a experiência de desenvolvimento
+    e a operação de infraestrutura.
+
+specialties:
+  title: Especialidades
+  items:
+    - Platform Engineering
+    - SRE
+    - DevOps
+
+skills:
+  title: Competências
+  groups:
+    - category: Platform Engineering
+      items:
+        - Backstage
+        - Internal Developer Platforms (IDP)
+        - Developer Experience (DevEx)
+    - category: Cloud e infraestrutura
+      items:
+        - AWS
+        - Terraform
+        - Infrastructure as Code
+    - category: Containers e GitOps
+      items:
+        - Kubernetes
+        - EKS
+        - Argo CD
+    - category: Automação e desenvolvimento
+      items:
+        - GitHub Actions
+        - Go
+        - APIs
+    - category: Confiabilidade
+      items:
+        - Observabilidade
+        - SLI/SLO
+        - Práticas de SRE
+
+impact:
+  title: Impacto profissional
+  items:
+    - value: +1.000 usuários
+      description: Governança de Argo CD para mais de 1.000 usuários.
+    - value: ≈ US$ 300 mil/ano
+      description: Economia reportada em iniciativas de infraestrutura e eficiência.
+    - value: +30 tickets/mês
+      description: Tickets eliminados por meio de automação e self-service.
+
+community:
+  title: Comunidade
+  items:
+    - Organização de cinco edições do DevOpsDays.
+    - Participação como staff do Kubernetes Community Days (KCD).
+
+contact:
+  title: Vamos conversar?
+  description: Entre em contato por e-mail ou conecte-se comigo no LinkedIn.
